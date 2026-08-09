@@ -9,16 +9,30 @@ export function renderBookshelf(books) {
 
   shelf.innerHTML = "";
   books.forEach((book) => {
-    const card = createBookCard(book, (selected) =>
-      showBookDetail(selected, books, detail, detailContent)
+    const card = createBookCard(book, (selected, cardEl) =>
+      showBookDetail(selected, books, detail, detailContent, cardEl)
     );
     shelf.appendChild(card);
   });
 
-  closeBtn.addEventListener("click", () => detail.classList.add("hidden"));
+  closeBtn.addEventListener("click", () => closeDetail(detail));
+
+  document.addEventListener("click", (e) => {
+    if (detail.classList.contains("hidden")) return;
+    if (detail.contains(e.target) || e.target.closest(".book-card")) return;
+    closeDetail(detail);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeDetail(detail);
+  });
 }
 
-function showBookDetail(book, allBooks, detail, detailContent) {
+function closeDetail(detail) {
+  detail.classList.add("hidden");
+}
+
+function showBookDetail(book, allBooks, detail, detailContent, cardEl) {
   const connections = findConnections(book, allBooks);
 
   detailContent.innerHTML = `
@@ -33,6 +47,33 @@ function showBookDetail(book, allBooks, detail, detailContent) {
   `;
 
   detail.classList.remove("hidden");
+  positionDetail(detail, cardEl);
+}
+
+function positionDetail(detail, cardEl) {
+  const cardRect = cardEl.getBoundingClientRect();
+  const detailRect = detail.getBoundingClientRect();
+  const margin = 16;
+
+  const spaceBelow = window.innerHeight - cardRect.bottom;
+  const spaceAbove = cardRect.top;
+  const openBelow = spaceBelow >= detailRect.height + margin || spaceBelow >= spaceAbove;
+
+  const left = Math.min(
+    Math.max(cardRect.left + cardRect.width / 2 - detailRect.width / 2, margin),
+    window.innerWidth - detailRect.width - margin
+  );
+  detail.style.left = `${left}px`;
+
+  if (openBelow) {
+    detail.style.top = `${cardRect.bottom + margin}px`;
+    detail.style.bottom = "auto";
+    detail.dataset.position = "below";
+  } else {
+    detail.style.top = "auto";
+    detail.style.bottom = `${window.innerHeight - cardRect.top + margin}px`;
+    detail.dataset.position = "above";
+  }
 }
 
 function renderConnections(connections) {

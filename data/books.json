@@ -9,7 +9,8 @@
     "dateRead": "2025-03-14",
     "rating": 5,
     "coverImage": "assets/covers/dune.jpg",
-    "reflections": "A slow burn that rewards patience. The ecological worldbuilding stuck with me more than the politics."
+    "reflections": "A slow burn that rewards patience. The ecological worldbuilding stuck with me more than the politics.",
+    "color": "#7a4b2a"
   },
   {
     "id": "childhoods-end-1953",
@@ -21,7 +22,8 @@
     "dateRead": "2025-05-02",
     "rating": 4,
     "coverImage": "assets/covers/childhoods-end.jpg",
-    "reflections": "Unsettling ending. Made me think about what 'progress' actually costs a species."
+    "reflections": "Unsettling ending. Made me think about what 'progress' actually costs a species.",
+    "color": "#2f5d62"
   },
   {
     "id": "the-left-hand-of-darkness-1969",
@@ -33,6 +35,33 @@
     "dateRead": "2025-06-20",
     "rating": 5,
     "coverImage": "assets/covers/left-hand-of-darkness.jpg",
-    "reflections": "Le Guin builds an entire society around a single 'what if' and never loses the human core of it."
+    "reflections": "Le Guin builds an entire society around a single 'what if' and never loses the human core of it.",
+    "color": "#8e3b46"
+  },
+  {
+    "id": "neuromancer-1984",
+    "title": "Neuromancer",
+    "author": "William Gibson",
+    "pages": 271,
+    "genre": "Science Fiction",
+    "themes": ["technology", "identity", "corporations", "isolation"],
+    "dateRead": "2025-07-10",
+    "rating": 4,
+    "coverImage": "assets/covers/neuromancer.jpg",
+    "reflections": "Dense and disorienting in the best way. You can feel the whole cyberpunk genre being invented in real time.",
+    "color": "#3c5a89"
+  },
+  {
+    "id": "the-handmaids-tale-1985",
+    "title": "The Handmaid's Tale",
+    "author": "Margaret Atwood",
+    "pages": 311,
+    "genre": "Dystopian Fiction",
+    "themes": ["power", "gender", "religion", "coming of age"],
+    "dateRead": "2025-07-28",
+    "rating": 5,
+    "coverImage": "assets/covers/handmaids-tale.jpg",
+    "reflections": "Quietly devastating. The restraint in the prose makes the horror land harder.",
+    "color": "#6b4e8e"
   }
 ]

@@ -35,15 +35,34 @@
 
 .book-detail {
   position: fixed;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: min(360px, 90vw);
+  width: min(320px, 90vw);
+  max-height: min(70vh, 480px);
   background: var(--color-panel);
-  border-left: 1px solid var(--color-border);
-  padding: 2rem 1.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 1.75rem 1.5rem 1.5rem;
   overflow-y: auto;
-  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  z-index: 50;
+}
+
+.book-detail[data-position="below"]::before,
+.book-detail[data-position="above"]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+}
+
+.book-detail[data-position="below"]::before {
+  top: -16px;
+  border-bottom-color: var(--color-panel);
+}
+
+.book-detail[data-position="above"]::before {
+  bottom: -16px;
+  border-top-color: var(--color-panel);
 }
 
 .close-btn {
