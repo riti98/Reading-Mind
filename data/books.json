@@ -1,0 +1,38 @@
+[
+  {
+    "id": "dune-1965",
+    "title": "Dune",
+    "author": "Frank Herbert",
+    "pages": 412,
+    "genre": "Science Fiction",
+    "themes": ["power", "ecology", "religion", "coming of age"],
+    "dateRead": "2025-03-14",
+    "rating": 5,
+    "coverImage": "assets/covers/dune.jpg",
+    "reflections": "A slow burn that rewards patience. The ecological worldbuilding stuck with me more than the politics."
+  },
+  {
+    "id": "childhoods-end-1953",
+    "title": "Childhood's End",
+    "author": "Arthur C. Clarke",
+    "pages": 224,
+    "genre": "Science Fiction",
+    "themes": ["utopia", "coming of age", "transcendence"],
+    "dateRead": "2025-05-02",
+    "rating": 4,
+    "coverImage": "assets/covers/childhoods-end.jpg",
+    "reflections": "Unsettling ending. Made me think about what 'progress' actually costs a species."
+  },
+  {
+    "id": "the-left-hand-of-darkness-1969",
+    "title": "The Left Hand of Darkness",
+    "author": "Ursula K. Le Guin",
+    "pages": 304,
+    "genre": "Science Fiction",
+    "themes": ["gender", "power", "religion", "isolation"],
+    "dateRead": "2025-06-20",
+    "rating": 5,
+    "coverImage": "assets/covers/left-hand-of-darkness.jpg",
+    "reflections": "Le Guin builds an entire society around a single 'what if' and never loses the human core of it."
+  }
+]

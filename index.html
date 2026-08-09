@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading Mind — My Book Journal</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/bookshelf.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Reading Mind</h1>
+    <p class="tagline">A digital shelf for the books I've read</p>
+  </header>
+
+  <main>
+    <section id="bookshelf" class="bookshelf" aria-label="Book collection"></section>
+
+    <aside id="book-detail" class="book-detail hidden" aria-live="polite">
+      <button id="close-detail" class="close-btn" aria-label="Close">&times;</button>
+      <div id="book-detail-content"></div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>Add new books in <code>data/books.json</code>. See README for details.</p>
+  </footer>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
