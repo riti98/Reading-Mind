@@ -5,6 +5,8 @@
 .shelf-row {
   display: flex;
   align-items: flex-end;
+  justify-content: center;
+  justify-content: safe center;
   gap: 4px;
   overflow-x: auto;
   padding: 0 1rem 0;
