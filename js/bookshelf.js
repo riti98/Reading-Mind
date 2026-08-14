@@ -36,6 +36,7 @@ function closeDetail(detail) {
   detail.classList.add("hidden");
   if (activeCardEl) {
     activeCardEl.classList.remove("active");
+    activeCardEl.parentElement.classList.remove("has-active");
     activeCardEl = null;
   }
 }
@@ -45,6 +46,7 @@ function showBookDetail(book, detail, detailContent, cardEl) {
 
   if (activeCardEl) activeCardEl.classList.remove("active");
   cardEl.classList.add("active");
+  cardEl.parentElement.classList.add("has-active");
   activeCardEl = cardEl;
 
   detail.classList.remove("hidden");
