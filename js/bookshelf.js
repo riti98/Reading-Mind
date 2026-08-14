@@ -1,5 +1,7 @@
 import { createBookCard } from "./bookCard.js";
 
+let activeCardEl = null;
+
 export function renderBookshelf(books) {
   const shelf = document.getElementById("bookshelf");
   const detail = document.getElementById("book-detail");
@@ -32,10 +34,18 @@ export function renderBookshelf(books) {
 
 function closeDetail(detail) {
   detail.classList.add("hidden");
+  if (activeCardEl) {
+    activeCardEl.classList.remove("active");
+    activeCardEl = null;
+  }
 }
 
 function showBookDetail(book, detail, detailContent, cardEl) {
   detailContent.innerHTML = renderBookDetail(book);
+
+  if (activeCardEl) activeCardEl.classList.remove("active");
+  cardEl.classList.add("active");
+  activeCardEl = cardEl;
 
   detail.classList.remove("hidden");
   positionDetail(detail, cardEl);
@@ -99,25 +109,19 @@ function escapeHtml(str) {
 function positionDetail(detail, cardEl) {
   const cardRect = cardEl.getBoundingClientRect();
   const detailRect = detail.getBoundingClientRect();
-  const margin = 16;
-
-  const spaceBelow = window.innerHeight - cardRect.bottom;
-  const spaceAbove = cardRect.top;
-  const openBelow = spaceBelow >= detailRect.height + margin || spaceBelow >= spaceAbove;
+  const margin = 12;
+  const offset = 25;
 
   const left = Math.min(
-    Math.max(cardRect.left + cardRect.width / 2 - detailRect.width / 2, margin),
+    Math.max(cardRect.left - offset, margin),
     window.innerWidth - detailRect.width - margin
   );
-  detail.style.left = `${left}px`;
+  const top = Math.min(
+    Math.max(cardRect.top + offset, margin),
+    window.innerHeight - detailRect.height - margin
+  );
 
-  if (openBelow) {
-    detail.style.top = `${cardRect.bottom + margin}px`;
-    detail.style.bottom = "auto";
-    detail.dataset.position = "below";
-  } else {
-    detail.style.top = "auto";
-    detail.style.bottom = `${window.innerHeight - cardRect.top + margin}px`;
-    detail.dataset.position = "above";
-  }
+  detail.style.left = `${left}px`;
+  detail.style.top = `${top}px`;
+  detail.style.bottom = "auto";
 }

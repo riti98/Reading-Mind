@@ -47,6 +47,12 @@
   z-index: 2;
 }
 
+.book-card.active,
+.book-card.active:hover,
+.book-card.active:focus-visible {
+  transform: none;
+}
+
 .book-card .spine-text {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
