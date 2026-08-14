@@ -1,5 +1,5 @@
 .bookshelf {
-  padding: 1.5rem 0 0;
+  padding: 2.5rem 0 0;
 }
 
 .shelf-row {
@@ -7,10 +7,10 @@
   align-items: flex-end;
   justify-content: center;
   justify-content: safe center;
-  gap: calc(4px * var(--spine-scale));
+  gap: 4px;
   overflow-x: auto;
   padding: 0 1rem 0;
-  border-bottom: calc(20px * var(--spine-scale)) solid #909090;
+  border-bottom: 20px solid #909090;
 }
 
 .book-card {
@@ -25,15 +25,15 @@
   --spine-tracking: 0px;
 
   flex: 0 0 auto;
-  width: calc(var(--spine-w) * var(--spine-scale));
-  height: calc(var(--spine-h) * var(--spine-scale));
+  width: var(--spine-w);
+  height: var(--spine-h);
   background: var(--spine-bg);
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: center;
-  gap: calc(6px * var(--spine-scale));
-  padding-bottom: calc(35px * var(--spine-scale));
+  gap: 6px;
+  padding-bottom: 35px;
   border: none;
   cursor: pointer;
   transition: transform 0.15s ease;
@@ -56,17 +56,17 @@
 
 .book-card .spine-subtitle {
   color: var(--spine-color);
-  font-size: calc(var(--spine-subtitle-size) * var(--spine-scale));
+  font-size: var(--spine-subtitle-size);
   font-weight: 400;
   font-style: normal;
 }
 
 .book-card .spine-title {
   color: var(--spine-color);
-  font-size: calc(var(--spine-size) * var(--spine-scale));
+  font-size: var(--spine-size);
   font-weight: var(--spine-weight);
   font-style: var(--spine-style);
-  letter-spacing: calc(var(--spine-tracking) * var(--spine-scale));
+  letter-spacing: var(--spine-tracking);
 }
 
 .book-card .spine-title em {
