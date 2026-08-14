@@ -1,39 +1,76 @@
 .bookshelf {
+  padding: 2.5rem 0 0;
+}
+
+.shelf-row {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  padding: 1.5rem 0;
-  border-bottom: 8px solid var(--color-accent);
+  align-items: flex-end;
+  gap: 4px;
+  overflow-x: auto;
+  padding: 0 1rem 0;
+  border-bottom: 20px solid #909090;
+  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
 }
 
 .book-card {
-  width: 90px;
-  height: 260px;
-  background: var(--color-accent);
-  color: #fff;
-  border-radius: 4px 2px 2px 4px;
-  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+  --spine-w: 60px;
+  --spine-h: 400px;
+  --spine-bg: var(--color-accent);
+  --spine-color: #fff;
+  --spine-size: 16px;
+  --spine-subtitle-size: 12px;
+  --spine-weight: 500;
+  --spine-style: normal;
+  --spine-tracking: 0px;
+
+  flex: 0 0 auto;
+  width: var(--spine-w);
+  height: var(--spine-h);
+  background: var(--spine-bg);
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 22px 0;
+  gap: 6px;
+  border: none;
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
 }
 
 .book-card:hover,
 .book-card:focus-visible {
   transform: translateY(-10px);
-  box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 10px 16px rgba(0, 0, 0, 0.35);
+  outline: none;
+  z-index: 2;
 }
 
-.book-card .book-title {
+.book-card .spine-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: pre;
   font-family: "Inter", system-ui, sans-serif;
+  line-height: 1;
+}
+
+.book-card .spine-subtitle {
+  color: var(--spine-color);
+  font-size: var(--spine-subtitle-size);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.book-card .spine-title {
+  color: var(--spine-color);
+  font-size: var(--spine-size);
+  font-weight: var(--spine-weight);
+  font-style: var(--spine-style);
+  letter-spacing: var(--spine-tracking);
+}
+
+.book-card .spine-title em {
+  font-style: italic;
   font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.04em;
 }
 
 .book-detail {

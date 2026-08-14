@@ -8,12 +8,15 @@ export function renderBookshelf(books) {
   const closeBtn = document.getElementById("close-detail");
 
   shelf.innerHTML = "";
+  const row = document.createElement("div");
+  row.className = "shelf-row";
   books.forEach((book) => {
     const card = createBookCard(book, (selected, cardEl) =>
       showBookDetail(selected, books, detail, detailContent, cardEl)
     );
-    shelf.appendChild(card);
+    row.appendChild(card);
   });
+  shelf.appendChild(row);
 
   closeBtn.addEventListener("click", () => closeDetail(detail));
 
@@ -35,12 +38,19 @@ function closeDetail(detail) {
 function showBookDetail(book, allBooks, detail, detailContent, cardEl) {
   const connections = findConnections(book, allBooks);
 
+  const metaParts = [
+    book.author,
+    book.pages ? `${book.pages} pages` : null,
+    book.dateRead ? `read ${book.dateRead}` : null,
+  ].filter(Boolean);
+  const rating = book.rating || 0;
+
   detailContent.innerHTML = `
     <h2>${book.title}</h2>
-    <p class="meta">${book.author} &middot; ${book.pages} pages &middot; read ${book.dateRead}</p>
-    <p class="meta">Rating: ${"★".repeat(book.rating)}${"☆".repeat(5 - book.rating)}</p>
+    <p class="meta">${metaParts.join(" &middot; ")}</p>
+    <p class="meta">Rating: ${"★".repeat(rating)}${"☆".repeat(5 - rating)}</p>
     <div class="themes">
-      ${book.themes.map((theme) => `<span>${theme}</span>`).join("")}
+      ${(book.themes || []).map((theme) => `<span>${theme}</span>`).join("")}
     </div>
     <p>${book.reflections}</p>
     ${renderConnections(connections)}
