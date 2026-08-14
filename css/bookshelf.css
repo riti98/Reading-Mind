@@ -146,7 +146,7 @@
 
 .detail-award {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 6px;
 }
 
@@ -154,7 +154,6 @@
   width: 17px;
   height: 17px;
   flex: none;
-  margin-top: 1px;
   color: #f2b705;
 }
 
