@@ -34,13 +34,12 @@
   padding-bottom: 35px;
   border: none;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease;
 }
 
 .book-card:hover,
 .book-card:focus-visible {
   transform: translateY(-10px);
-  box-shadow: 4px 10px 16px rgba(0, 0, 0, 0.35);
   outline: none;
   z-index: 2;
 }
@@ -82,7 +81,6 @@
   border-radius: 10px;
   padding: 1.75rem 1.5rem 1.5rem;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   z-index: 50;
 }
 
