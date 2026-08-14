@@ -16,6 +16,7 @@
 .book-card {
   --spine-w: 60px;
   --spine-h: 400px;
+  --spine-height-trim: 60px;
   --spine-bg: var(--color-accent);
   --spine-color: #fff;
   --spine-size: 16px;
@@ -26,7 +27,7 @@
 
   flex: 0 0 auto;
   width: var(--spine-w);
-  height: var(--spine-h);
+  height: calc(var(--spine-h) - var(--spine-height-trim));
   background: var(--spine-bg);
   display: flex;
   flex-direction: row;
